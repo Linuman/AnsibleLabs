@@ -1719,122 +1719,106 @@ contains special values that control Ansible&rsquo;s behavior and environment in
 </span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#001-verify-ansible-__codelineno-17-26"></a><span class="o">}</span>
 </span></code></pre></div>
 </li>
-</ul></section><section class="print-page" id="002-no-inventory" heading-number="2.4"><div align="center">
-    <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
-
-  ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
-  [![Linkedin Badge](https://img.shields.io/badge/-nirgeier-blue?style=flat&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nirgeier/)](https://www.linkedin.com/in/nirgeier/) 
-  [![Gmail Badge](https://img.shields.io/badge/-nirgeier@gmail.com-fcc624?style=flat&logo=Gmail&logoColor=red&link=mailto:nirgeier@gmail.com)](mailto:nirgeier@gmail.com) [![Outlook Badge](https://img.shields.io/badge/-nirg@codewizard.co.il-fcc624?style=flat&logo=microsoftoutlook&logoColor=blue&link=mailto:nirg@codewizard.co.il)](mailto:nirg@codewizard.co.il) 
-  <a href="#002-no-inventory"><img src="https://img.shields.io/github/stars/nirgeier/AnsibleLabs"></a> 
-  <img src="https://img.shields.io/github/forks/nirgeier/AnsibleLabs">  
-  <a href="https://discord.gg/U6xW23Ss"><img src="https://img.shields.io/badge/discord-7289da.svg?style=plastic&logo=discord" alt="discord" style="height: 20px;"></a>
-  <img src="https://img.shields.io/github/contributors-anon/nirgeier/AnsibleLabs?color=yellow&style=plastic" alt="contributors" style="height: 20px;"></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/apache%202.0-blue.svg?style=plastic&label=license" alt="license" style="height: 20px;"></a>
-  <a href="https://github.com/nirgeier/AnsibleLabs/pulls"><img src="https://img.shields.io/github/issues-pr/nirgeier/AnsibleLabs?style=plastic&logo=pr" alt="Pull Requests" style="height: 20px;"></a> 
-
-If you appreciate the effort, Please <img src="https://raw.githubusercontent.com/nirgeier/labs-assets/main/assets/images/star.png" height="20px"> this project
-
-</div>
-
+</ul></section><section class="print-page" id="002-no-inventory" heading-number="2.4"><p><a href="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-002.yaml" target="_blank">
+  <img src="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-002.yaml/badge.svg" alt="Build Status">
+</a></p>
 <hr />
-<h1 id="002-no-inventory-lab-002-no-inventory-example">Lab 002 - No inventory example<a class="headerlink" href="#002-no-inventory-lab-002-no-inventory-example" title="Permanent link">&para;</a></h1>
+<h1 id="002-no-inventory-lab-002-no-inventory">Lab 002 - No Inventory<a class="headerlink" href="#002-no-inventory-lab-002-no-inventory" title="Permanent link">&para;</a></h1>
 <ul>
-<li><a href="#002-no-inventory-lab-002---no-inventory-example">Lab 002 - No inventory example</a><ul>
-<li><a href="#002-no-inventory-01-clear-the-inventory">01. &ldquo;Clear&rdquo; the inventory</a></li>
-<li><a href="#002-no-inventory-0101-create-the-inventory-file">01.01. Create the <code>inventory</code> file</a></li>
-<li><a href="#002-no-inventory-ansible-inventory">Ansible Inventory</a></li>
-<li><a href="#002-no-inventory-key-features-of-ansible-inventory">Key features of Ansible inventory</a></li>
-<li><a href="#002-no-inventory-inventory-types-in-ansible">inventory types in Ansible</a></li>
+<li>In this lab we will learn about Ansible inventory and how it affects automation tasks.</li>
+<li>We will start with an empty inventory and observe Ansible’s behavior with no hosts defined. Later, we will create and test the inventory file.</li>
+<li>This lab is based upon the previous lab and its docker-compose setup.</li>
 </ul>
-</li>
-<li><a href="#002-no-inventory-lab">Lab</a><ul>
-<li><a href="#002-no-inventory-01-no-inventory-invocation">01. No inventory invocation</a></li>
-<li><a href="#002-no-inventory-02-inventory-invocation">02. <code>inventory</code> invocation</a></li>
+<h3 id="002-no-inventory-pre-requirements">Pre-Requirements<a class="headerlink" href="#002-no-inventory-pre-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Complete the <a href="#001-verify-ansible-usage">previous lab</a> in order to have <code>Ansible</code> configured.</li>
 </ul>
-</li>
-</ul>
+<hr />
 <h3 id="002-no-inventory-01-clear-the-inventory">01. &ldquo;Clear&rdquo; the inventory<a class="headerlink" href="#002-no-inventory-01-clear-the-inventory" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Lets clear the inventory from previous steps and walk thorough what is <code>inventory</code></li>
+<li>Let&rsquo;s clear the inventory from previous labs and walk through what is <code>inventory</code>.</li>
 </ul>
-<h3 id="002-no-inventory-0101-create-the-inventory-file">01.01. Create the <code>inventory</code> file<a class="headerlink" href="#002-no-inventory-0101-create-the-inventory-file" title="Permanent link">&para;</a></h3>
+<h3 id="002-no-inventory-02-create-the-inventory-file">02. Create the <code>inventory</code> file<a class="headerlink" href="#002-no-inventory-02-create-the-inventory-file" title="Permanent link">&para;</a></h3>
 <h4 id="002-no-inventory-ansible-inventory">Ansible Inventory<a class="headerlink" href="#002-no-inventory-ansible-inventory" title="Permanent link">&para;</a></h4>
 <ul>
-<li>An Ansible inventory is a file or <strong>collection of files</strong> that defines the <strong><code>[hosts]</code></strong> and <strong><code>[groups]</code></strong> of hosts upon which Ansible will operates. </li>
-<li>It&rsquo;s simply a list of servers that Ansible can connect to and manage.</li>
+<li>An <code>Ansible</code> <code>inventory</code> can either be a single file or a <strong>collection of files</strong> </li>
+<li>The <code>inventory</code> defines the <strong><code>[hosts]</code></strong> and <strong><code>[groups]</code></strong> of hosts upon which <code>Ansible</code> will operate. </li>
+<li>It&rsquo;s simply a list of servers that <code>Ansible</code> can connect with and manage.</li>
 </ul>
 <h4 id="002-no-inventory-key-features-of-ansible-inventory">Key features of Ansible inventory<a class="headerlink" href="#002-no-inventory-key-features-of-ansible-inventory" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Can be in various formats, with <code>INI</code>, <code>JSON</code>, <code>YAML</code> and more.</li>
-<li><code>YAML</code>  is the most common format</li>
-<li><code>inventory</code> defines the target hosts for <code>playbook</code> execution</li>
-<li><code>inventory</code> organizes hosts into <strong>logical groups</strong> for easier management</li>
-<li><code>inventory</code> can store <strong>host-specific</strong> variables and <strong>group</strong> variables</li>
-<li>
-<p><code>inventory</code> supports nested groups (groups of groups)</p>
-<h4 id="002-no-inventory-inventory-samples"><code>inventory</code> samples<a class="headerlink" href="#002-no-inventory-inventory-samples" title="Permanent link">&para;</a></h4>
-<ul>
-<li><code>INI</code> format
-    <div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#002-no-inventory-__codelineno-0-1"></a><span class="k">[webservers]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#002-no-inventory-__codelineno-0-2"></a><span class="na">web1.example.com</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#002-no-inventory-__codelineno-0-3"></a><span class="na">web2.example.com</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#002-no-inventory-__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#002-no-inventory-__codelineno-0-5"></a><span class="k">[database]</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#002-no-inventory-__codelineno-0-6"></a><span class="na">db1.example.com</span>
-</span></code></pre></div></li>
-<li><code>YAML</code> format
-    <div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#002-no-inventory-__codelineno-1-1"></a><span class="nt">all</span><span class="p">:</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#002-no-inventory-__codelineno-1-2"></a><span class="w">    </span><span class="nt">hosts</span><span class="p">:</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#002-no-inventory-__codelineno-1-3"></a><span class="w">        </span><span class="nt">web1.example.com</span><span class="p">:</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#002-no-inventory-__codelineno-1-4"></a><span class="w">        </span><span class="nt">web2.example.com</span><span class="p">:</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#002-no-inventory-__codelineno-1-5"></a><span class="w">    </span><span class="nt">children</span><span class="p">:</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#002-no-inventory-__codelineno-1-6"></a><span class="w">        </span><span class="nt">database</span><span class="p">:</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#002-no-inventory-__codelineno-1-7"></a><span class="w">        </span><span class="nt">hosts</span><span class="p">:</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#002-no-inventory-__codelineno-1-8"></a><span class="w">            </span><span class="nt">db1.example.com</span><span class="p">:</span>
-</span></code></pre></div></li>
-<li><code>JSON</code> format
-    <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#002-no-inventory-__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#002-no-inventory-__codelineno-2-2"></a><span class="nt">&quot;all&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#002-no-inventory-__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;hosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#002-no-inventory-__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;web1.example.com&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#002-no-inventory-__codelineno-2-5"></a><span class="w">        </span><span class="nt">&quot;ansible_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2222</span><span class="p">,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#002-no-inventory-__codelineno-2-6"></a><span class="w">        </span><span class="nt">&quot;http_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#002-no-inventory-__codelineno-2-7"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#002-no-inventory-__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;web2.example.com&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#002-no-inventory-__codelineno-2-9"></a><span class="w">        </span><span class="nt">&quot;ansible_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2223</span><span class="p">,</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#002-no-inventory-__codelineno-2-10"></a><span class="w">        </span><span class="nt">&quot;http_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#002-no-inventory-__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#002-no-inventory-__codelineno-2-12"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#002-no-inventory-__codelineno-2-13"></a><span class="w">    </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#002-no-inventory-__codelineno-2-14"></a><span class="w">    </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#002-no-inventory-__codelineno-2-15"></a><span class="w">        </span><span class="nt">&quot;hosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#002-no-inventory-__codelineno-2-16"></a><span class="w">        </span><span class="s2">&quot;db1.example.com&quot;</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#002-no-inventory-__codelineno-2-17"></a><span class="w">        </span><span class="p">]</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#002-no-inventory-__codelineno-2-18"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#002-no-inventory-__codelineno-2-19"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#002-no-inventory-__codelineno-2-20"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#002-no-inventory-__codelineno-2-21"></a><span class="p">}</span>
-</span></code></pre></div></li>
+<li>Can be in various formats, such as <code>INI</code>, <code>JSON</code>, <code>YAML</code> and more.</li>
+<li><code>YAML</code>  being the most common format.</li>
+<li><code>inventory</code> defines the target hosts for <code>playbook</code> execution.</li>
+<li><code>inventory</code> organizes hosts into <strong>logical groups</strong> for easier management.</li>
+<li><code>inventory</code> can store <strong>host-specific</strong> variables and <strong>group</strong> variables.</li>
+<li><code>inventory</code> supports nested groups (groups of groups).</li>
 </ul>
-</li>
-</ul>
-<h4 id="002-no-inventory-inventory-types-in-ansible">inventory types in Ansible<a class="headerlink" href="#002-no-inventory-inventory-types-in-ansible" title="Permanent link">&para;</a></h4>
+<h3 id="002-no-inventory-03-inventory-samples">03. <code>inventory</code> samples<a class="headerlink" href="#002-no-inventory-03-inventory-samples" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`INI`</span><span class="w"> </span><span class="k">format</span>
+<span class="w">    </span><span class="n n-Quoted">`</span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">ini</span>
+<span class="n n-Quoted">    [webservers]</span>
+<span class="n n-Quoted">    web1.example.com</span>
+<span class="n n-Quoted">    web2.example.com</span>
+
+<span class="n n-Quoted">    [database]</span>
+<span class="n n-Quoted">    db1.example.com</span>
+<span class="n n-Quoted">    </span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">`</span>
+
+<span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`YAML`</span><span class="w"> </span><span class="k">format</span>
+<span class="w">    </span><span class="n n-Quoted">`</span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">yaml</span>
+<span class="n n-Quoted">    all:</span>
+<span class="n n-Quoted">        hosts:</span>
+<span class="n n-Quoted">            web1.example.com:</span>
+<span class="n n-Quoted">            web2.example.com:</span>
+<span class="n n-Quoted">        children:</span>
+<span class="n n-Quoted">            database:</span>
+<span class="n n-Quoted">            hosts:</span>
+<span class="n n-Quoted">                db1.example.com:</span>
+<span class="n n-Quoted">    </span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">`</span>
+
+<span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`JSON`</span><span class="w"> </span><span class="k">format</span>
+<span class="w">    </span><span class="n n-Quoted">`</span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">json</span>
+<span class="n n-Quoted">    {</span>
+<span class="n n-Quoted">    &quot;all&quot;: {</span>
+<span class="n n-Quoted">        &quot;hosts&quot;: {</span>
+<span class="n n-Quoted">        &quot;web1.example.com&quot;: {</span>
+<span class="n n-Quoted">            &quot;ansible_port&quot;: 2222,</span>
+<span class="n n-Quoted">            &quot;http_port&quot;: 80</span>
+<span class="n n-Quoted">        },</span>
+<span class="n n-Quoted">        &quot;web2.example.com&quot;: {</span>
+<span class="n n-Quoted">            &quot;ansible_port&quot;: 2223,</span>
+<span class="n n-Quoted">            &quot;http_port&quot;: 8080</span>
+<span class="n n-Quoted">        }</span>
+<span class="n n-Quoted">        },</span>
+<span class="n n-Quoted">        &quot;children&quot;: {</span>
+<span class="n n-Quoted">        &quot;database&quot;: {</span>
+<span class="n n-Quoted">            &quot;hosts&quot;: [</span>
+<span class="n n-Quoted">            &quot;db1.example.com&quot;</span>
+<span class="n n-Quoted">            ]</span>
+<span class="n n-Quoted">          }</span>
+<span class="n n-Quoted">        }</span>
+<span class="n n-Quoted">      }</span>
+<span class="n n-Quoted">    }</span>
+<span class="n n-Quoted">    </span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">`</span>
+</code></pre></div>
+
+<h4 id="002-no-inventory-inventory-types-in-ansible">Inventory types in Ansible<a class="headerlink" href="#002-no-inventory-inventory-types-in-ansible" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p><strong>Static Inventory</strong></p>
 <ul>
-<li>This is generally a simple text file (usually in INI or YAML format) that lists your hosts and their corresponding groups.</li>
+<li>This is generally a simple text file (usually in INI or YAML format) that lists the hosts and their corresponding groups.</li>
 </ul>
 </li>
 <li>
 <p><strong>Dynamic Inventory</strong></p>
 <ul>
-<li>This is generated by a script or a program that retrieves host information from an external source, such as cloud providers (like <code>AWS</code>, <code>Azure</code>, etc.), <code>LDAP</code>, or a <code>database</code>. </li>
-<li>
-<p>This allows for real-time updates and adaptability as environments change.</p>
-<ul>
-<li>Example of generating <code>Dynamic inventory</code> using python code fetching data form datable
-    <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#002-no-inventory-__codelineno-3-1"></a><span class="ch">#!/usr/bin/env python</span>
+<li>This is generated by a script or a program that retrieves host information from an external source (such as cloud providers like <code>AWS</code>, <code>Azure</code>, etc.), <code>LDAP</code> or from a <code>database</code>. </li>
+<li>This allows for real-time updates and adaptability as environments change.</li>
+</ul>
+<p>See an example of generating a <code>dynamic inventory</code> using <code>Python</code> code for fetching data from a database:
+        <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#002-no-inventory-__codelineno-3-1"></a><span class="ch">#!/usr/bin/env python</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#002-no-inventory-__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#002-no-inventory-__codelineno-3-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#002-no-inventory-__codelineno-3-4"></a>
@@ -1862,20 +1846,17 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#002-no-inventory-__codelineno-3-26"></a>
 </span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#002-no-inventory-__codelineno-3-27"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 </span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#002-no-inventory-__codelineno-3-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">get_inventory</span><span class="p">()))</span>
-</span></code></pre></div></li>
-</ul>
-</li>
-</ul>
+</span></code></pre></div></p>
 </li>
 </ol>
 <hr />
-<h2 id="002-no-inventory-lab">Lab<a class="headerlink" href="#002-no-inventory-lab" title="Permanent link">&para;</a></h2>
+<h3 id="002-no-inventory-04-lab-exercise">04. Lab exercise<a class="headerlink" href="#002-no-inventory-04-lab-exercise" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>Lets create the inventory configuration we will use for the labs:</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#002-no-inventory-__codelineno-4-1"></a><span class="c1">### File Location: $RUNTIME_FOLDER/labs-scripts/inventory</span>
+<p>Let&rsquo;s create the inventory configuration that we will use for the labs:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#002-no-inventory-__codelineno-4-1"></a><span class="c1">### File location: $RUNTIME_FOLDER/labs-scripts/inventory</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#002-no-inventory-__codelineno-4-2"></a><span class="c1">###</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#002-no-inventory-__codelineno-4-3"></a><span class="c1">### List of servers which we want ansible to connect to</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#002-no-inventory-__codelineno-4-3"></a><span class="c1">### List of servers which we want Ansible to connect to</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#002-no-inventory-__codelineno-4-4"></a><span class="c1">### The names are defined in the docker-compose</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#002-no-inventory-__codelineno-4-5"></a><span class="c1">###</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#002-no-inventory-__codelineno-4-6"></a>
@@ -1884,10 +1865,10 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </span></code></pre></div>
 </li>
 </ul>
-<h3 id="002-no-inventory-01-no-inventory-invocation">01. No inventory invocation<a class="headerlink" href="#002-no-inventory-01-no-inventory-invocation" title="Permanent link">&para;</a></h3>
+<h3 id="002-no-inventory-05-no-inventory-invocation">05. No inventory invocation<a class="headerlink" href="#002-no-inventory-05-no-inventory-invocation" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>Once all is ready lets check is the controller can connect to the servers with the using <code>ping</code></p>
+<p>Once all is ready, let&rsquo;s check if the controller can connect to the servers using <code>ping</code></p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#002-no-inventory-__codelineno-5-1"></a><span class="c1"># Ping the servers and check that they are &quot;alive&quot;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#002-no-inventory-__codelineno-5-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible all -m ping&quot;</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#002-no-inventory-__codelineno-5-3"></a>
@@ -1898,9 +1879,9 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </span></code></pre></div>
 </li>
 </ul>
-<h3 id="002-no-inventory-02-inventory-invocation">02. <code>inventory</code> invocation<a class="headerlink" href="#002-no-inventory-02-inventory-invocation" title="Permanent link">&para;</a></h3>
+<h3 id="002-no-inventory-06-inventory-invocation">06. <code>inventory</code> invocation<a class="headerlink" href="#002-no-inventory-06-inventory-invocation" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Fill in the inventory based upon the prevoius labs configuration and test it.</li>
+<li>Fill in the inventory based upon the previous labs&rsquo; configuration and test it.</li>
 <li>Verify that the inventory is defined correctly with: 
     <div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#002-no-inventory-__codelineno-6-1"></a>ansible-inventory<span class="w"> </span>-i<span class="w"> </span>&lt;inventory_file&gt;<span class="w"> </span>--graph
 </span></code></pre></div></li>
@@ -1922,15 +1903,7 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </span></code></pre></div>
 </details></p>
 </li>
-</ul>
-<hr />
-<!--- Labs Navigation Start -->
-<p style="text-align: center;">  
-    <a href="#labs-001-verify-ansible">:arrow_backward: /Labs/001-verify-ansible</a>
-    &emsp;<a href="#labs">Back to labs list</a>
-    &emsp;<a href="#labs-003-modules">/Labs/003-modules :arrow_forward:</a>
-</p>
-<!--- Labs Navigation End --></section><section class="print-page" id="003-modules" heading-number="2.5"><div align="center">
+</ul></section><section class="print-page" id="003-modules" heading-number="2.5"><div align="center">
     <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
 
   ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
