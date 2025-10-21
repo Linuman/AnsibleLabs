@@ -1903,80 +1903,52 @@ contains special values that control Ansible&rsquo;s behavior and environment in
 </span></code></pre></div>
 </details></p>
 </li>
-</ul></section><section class="print-page" id="003-modules" heading-number="2.5"><div align="center">
-    <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
-
-  ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
-  [![Linkedin Badge](https://img.shields.io/badge/-nirgeier-blue?style=flat&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nirgeier/)](https://www.linkedin.com/in/nirgeier/) 
-  [![Gmail Badge](https://img.shields.io/badge/-nirgeier@gmail.com-fcc624?style=flat&logo=Gmail&logoColor=red&link=mailto:nirgeier@gmail.com)](mailto:nirgeier@gmail.com) [![Outlook Badge](https://img.shields.io/badge/-nirg@codewizard.co.il-fcc624?style=flat&logo=microsoftoutlook&logoColor=blue&link=mailto:nirg@codewizard.co.il)](mailto:nirg@codewizard.co.il) 
-  <a href="#003-modules"><img src="https://img.shields.io/github/stars/nirgeier/AnsibleLabs"></a> 
-  <img src="https://img.shields.io/github/forks/nirgeier/AnsibleLabs">  
-  <a href="https://discord.gg/U6xW23Ss"><img src="https://img.shields.io/badge/discord-7289da.svg?style=plastic&logo=discord" alt="discord" style="height: 20px;"></a>
-  <img src="https://img.shields.io/github/contributors-anon/nirgeier/AnsibleLabs?color=yellow&style=plastic" alt="contributors" style="height: 20px;"></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/apache%202.0-blue.svg?style=plastic&label=license" alt="license" style="height: 20px;"></a>
-  <a href="https://github.com/nirgeier/AnsibleLabs/pulls"><img src="https://img.shields.io/github/issues-pr/nirgeier/AnsibleLabs?style=plastic&logo=pr" alt="Pull Requests" style="height: 20px;"></a> 
-
-If you appreciate the effort, Please <img src="https://raw.githubusercontent.com/nirgeier/labs-assets/main/assets/images/star.png" height="20px"> this project
-
-</div>
-
+</ul></section><section class="print-page" id="003-modules" heading-number="2.5"><p><a href="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-003.yaml" target="_blank">
+  <img src="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-003.yaml/badge.svg" alt="Build Status">
+</a></p>
 <hr />
 <h1 id="003-modules-lab-003-commands-modules">Lab 003 - Commands &amp; Modules<a class="headerlink" href="#003-modules-lab-003-commands-modules" title="Permanent link">&para;</a></h1>
 <ul>
-<li>In this section, we will cover <strong>Module</strong> </li>
-<li>
-<p><strong>Modules</strong> are important elements and are the &ldquo;heart&rdquo; of ansible.</p>
-</li>
-<li>
-<p><a href="#003-modules-lab-003---commands--modules">Lab 003 - Commands \&amp; Modules</a></p>
-</li>
-<li><a href="#003-modules-what-is-a-module">What is a Module?</a><ul>
-<li><a href="#003-modules-sample-module---the-build-in-ping-module">Sample Module - The build in &lsquo;ping&rsquo; Module</a></li>
-<li><a href="#003-modules-the-ping-module">The ping module</a></li>
+<li>In this section, we will cover the <strong>Modules</strong>.</li>
+<li><strong>Modules</strong> are important elements and act as the &ldquo;heart&rdquo; of <code>Ansible</code>.</li>
 </ul>
-</li>
-<li><a href="#003-modules-list-of-modules">List of modules</a></li>
-<li><a href="#003-modules-ad-hoc-command">Ad-hoc command</a><ul>
-<li><a href="#003-modules-ping">ping</a></li>
-<li><a href="#003-modules-shell">shell</a></li>
-<li><a href="#003-modules-dnf">dnf</a></li>
-<li><a href="#003-modules-setup">setup</a></li>
-</ul>
-</li>
-</ul>
-<p><img alt="Ansible Architecture" src="../../resources/ansible-engine.jpg" /></p>
-<h2 id="003-modules-what-is-a-module">What is a Module?<a class="headerlink" href="#003-modules-what-is-a-module" title="Permanent link">&para;</a></h2>
+<p><img src="../assets/images/ansible-engine.jpg" alt="Ansible Architecture" width="800"/></p>
+<h3 id="003-modules-pre-requirements">Pre-Requirements<a class="headerlink" href="#003-modules-pre-requirements" title="Permanent link">&para;</a></h3>
 <ul>
-<li>A module is a unit of code in Ansible that performs <strong>common operations in infrastructure management</strong>, such as configuring systems, installing software, or managing resources. </li>
-<li>Ansible has a <strong>huge</strong> number of modules. </li>
-<li>You can browser and search ansible builtin modules under the <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html#modules">Build In Ansible Modules</a></li>
+<li>Complete the <a href="#002-no-inventory-usage">previous lab</a> in order to have a working <code>Ansible</code> controller and inventory configuration.</li>
+</ul>
+<hr />
+<h3 id="003-modules-01-what-is-a-module">01. What is a module?<a class="headerlink" href="#003-modules-01-what-is-a-module" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A module is a unit of code in <code>Ansible</code> that performs <strong>common operations in infrastructure management</strong> (such as configuring systems, installing software and managing resources). </li>
+<li><code>Ansible</code> has a <strong>huge</strong> number of modules. </li>
+<li>You can browse and search <code>Ansible</code> builtin modules in the <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html#modules">Builtin Ansible modules</a>.</li>
 <li>Module are used for task automation.</li>
 </ul>
-<h3 id="003-modules-sample-module-the-build-in-ping-module">Sample Module - The build in &lsquo;ping&rsquo; Module<a class="headerlink" href="#003-modules-sample-module-the-build-in-ping-module" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="003-modules-02-a-sample-module">02. A sample module<a class="headerlink" href="#003-modules-02-a-sample-module" title="Permanent link">&para;</a></h3>
 <ul>
-<li>In this lab we will explore the build in <code>ping</code> Module</li>
-<li>The source code for this module is: https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/ping.py</li>
+<li>In this lab we will explore the builtin <code>ping</code> module.</li>
+<li>You can read about this module in the <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html">Ansible documentation</a>.</li>
+<li>You can find the source code for this module in <a href="https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/ping.py">Builtin ping module repo</a>.</li>
 </ul>
-<h3 id="003-modules-01-the-ping-module">01. The ping module<a class="headerlink" href="#003-modules-01-the-ping-module" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Source: https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/ping.py</li>
-<li>Docs:   https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html
-<br/>  </li>
-</ul>
+<hr />
+<h3 id="003-modules-03-the-ping-module">03. The ping module<a class="headerlink" href="#003-modules-03-the-ping-module" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>From the docs:</strong></p>
 <ul>
-<li><strong>ansible.builtin.ping</strong> module – <strong>Try to connect to host, verify a usable python and return pong on success</strong></li>
-<li>This module is part of ansible-core and included in all Ansible installations. </li>
-<li>In most cases, you can use the short module name <code>ping</code></li>
+<li><em>ansible.builtin.ping</em> module – <em>Try to connect to host, verify a usable python and return pong on success</em></li>
+<li><em>This module is part of ansible-core and included in all Ansible installations.</em></li>
+<li><em>In most cases, you can use the short module name <code>ping</code></em></li>
 </ul>
 </blockquote>
 <ul>
-<li>Now we will break down the code, fell free to browse and look on the full code Browse the code.</li>
+<li>Now, as we break down the code, feel free to browse and look at the full code.</li>
 </ul>
-<h3 id="003-modules-0101-the-ping-source-code">01.01. The ping source code<a class="headerlink" href="#003-modules-0101-the-ping-source-code" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="003-modules-04-the-ping-source-code">04. The ping source code<a class="headerlink" href="#003-modules-04-the-ping-source-code" title="Permanent link">&para;</a></h3>
 <ul>
-<li>At the time of writing this tutorial, the &ldquo;implementation&rdquo; of the <code>ping</code> is the following
+<li>At the time of writing this tutorial, the &ldquo;implementation&rdquo; of the <code>ping</code> module is as follows:
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#003-modules-__codelineno-0-1"></a><span class="n">RETURN</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#003-modules-__codelineno-0-2"></a><span class="s1">ping:</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#003-modules-__codelineno-0-3"></a><span class="s1">    description:  Value provided with the O(data) parameter.</span>
@@ -2008,24 +1980,27 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#003-modules-__codelineno-0-29"></a>    <span class="n">main</span><span class="p">()</span>
 </span></code></pre></div></li>
 </ul>
-<h2 id="003-modules-02-list-of-modules">02. List of modules<a class="headerlink" href="#003-modules-02-list-of-modules" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="003-modules-05-list-of-modules">05. List of modules<a class="headerlink" href="#003-modules-05-list-of-modules" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Modules are managed in the form of `collection&rsquo;, and each collection contains multiple related modules. </li>
-<li><a href="https://docs.ansible.com/ansible/latest/collections/index.html">List of Collections</a></li>
+<li>Modules are managed in the form of <code>collections</code>, as each <code>collection</code> contains multiple related modules. </li>
+<li>See here for a <a href="https://docs.ansible.com/ansible/latest/collections/index.html">List of Collections</a>.</li>
 </ul>
-<blockquote>
-<p>Note: 
-Up to version 2.9 Ansible included <strong>all modules</strong> by default, 
-but the number of modules increased so much that it was changed to the current format (2.10 and later)</p>
-</blockquote>
-<h2 id="003-modules-02-using-modules">02. Using modules<a class="headerlink" href="#003-modules-02-using-modules" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Note</p>
+<p>Up to version 2.9, <code>Ansible</code> included <strong>all modules</strong> by default, 
+but as the number of modules increased tremendously, it has been changed to the current format (ver. 2.10 and later).</p>
+</div>
+<hr />
+<h2 id="003-modules-06-using-modules">06. Using modules<a class="headerlink" href="#003-modules-06-using-modules" title="Permanent link">&para;</a></h2>
 <ul>
-<li>By default Ansible is installed with <code>ansible.builtin</code> as the only collection. </li>
-<li>A list of modules that are available in the <code>ansible.builtin</code> <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html#modules">click here</a> </li>
+<li>By default <code>Ansible</code> is installed with <code>ansible.builtin</code> as the only collection. </li>
+<li><a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html#modules">Click here</a> for a list of modules that are available in the <code>ansible.builtin</code>.</li>
 </ul>
-<h3 id="003-modules-0201-find-modules-for-you-os">02.01. Find modules for you OS<a class="headerlink" href="#003-modules-0201-find-modules-for-you-os" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="003-modules-07-find-modules-for-your-os">07. Find modules for your OS<a class="headerlink" href="#003-modules-07-find-modules-for-your-os" title="Permanent link">&para;</a></h2>
 <ul>
-<li>To see which modules are available for you OS use this command:
+<li>To see which modules are available for your OS, use the following command:
   <div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#003-modules-__codelineno-1-1"></a>ansible-doc<span class="w"> </span>-l
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#003-modules-__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#003-modules-__codelineno-1-3"></a><span class="c1">### Output (only first few lines)</span>
@@ -2039,164 +2014,201 @@ but the number of modules increased so much that it was changed to the current f
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#003-modules-__codelineno-1-11"></a>blockinfile<span class="w">     </span>Insert/update/remove<span class="w"> </span>a<span class="w"> </span>text<span class="w"> </span>block<span class="w"> </span>surrounded<span class="w"> </span>by<span class="w"> </span>marker<span class="w"> </span>lines
 </span></code></pre></div></li>
 </ul>
-<h3 id="003-modules-0202-documentation">02.02. Documentation<a class="headerlink" href="#003-modules-0202-documentation" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="003-modules-08-documentation">08. Documentation<a class="headerlink" href="#003-modules-08-documentation" title="Permanent link">&para;</a></h2>
 <ul>
-<li>To view documentation for a specific module:
-  <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#003-modules-__codelineno-2-1"></a># Display the ping documentation
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#003-modules-__codelineno-2-2"></a>$ ansible-doc ping
+<li>To view documentation for a specific module, use the following command:
+  <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#003-modules-__codelineno-2-1"></a><span class="c1"># Display the ping documentation</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#003-modules-__codelineno-2-2"></a>$<span class="w"> </span>ansible-doc<span class="w"> </span>ping
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#003-modules-__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#003-modules-__codelineno-2-4"></a>&gt; ANSIBLE.BUILTIN.PING    (/opt/homebrew/Cellar/ansible/9.4.0_1/libexec/lib/python3.12/site-packages/ansible/modules/ping&gt;
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#003-modules-__codelineno-2-5"></a>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#003-modules-__codelineno-2-6"></a>      A trivial test module, this module always returns `pong&#39; on successful contact. It does
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#003-modules-__codelineno-2-7"></a>      not make sense in playbooks, but it is useful from `/usr/bin/ansible&#39; to verify the
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#003-modules-__codelineno-2-8"></a>      ability to login and that a usable Python is configured. This is NOT ICMP ping, this is
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#003-modules-__codelineno-2-9"></a>      just a trivial test module that requires Python on the remote-node. For Windows targets,
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#003-modules-__codelineno-2-10"></a>      use the [ansible.windows.win_ping] module instead. For Network targets, use the
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#003-modules-__codelineno-2-11"></a>      [ansible.netcommon.net_ping] module instead.
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#003-modules-__codelineno-2-12"></a>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#003-modules-__codelineno-2-13"></a>ADDED IN: historical
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#003-modules-__codelineno-2-14"></a>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#003-modules-__codelineno-2-15"></a>OPTIONS (= is mandatory):
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#003-modules-__codelineno-2-16"></a>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#003-modules-__codelineno-2-17"></a>- data
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#003-modules-__codelineno-2-18"></a>      Data to return for the `ping&#39; return value.
-</span></code></pre></div></li>
-</ul>
-<h2 id="003-modules-03-common-ad-hoc-command">03. Common Ad-hoc command<a class="headerlink" href="#003-modules-03-common-ad-hoc-command" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Invoking a module is referred to as <code>Ad-hoc command</code>.</li>
-<li>The syntax is the following:
-  <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#003-modules-__codelineno-3-1"></a>$<span class="w"> </span>ansible<span class="w"> </span>&lt;servers&gt;<span class="w"> </span>-m<span class="w"> </span>&lt;module_name&gt;<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;&lt;parameters&gt;&#39;</span>
-</span></code></pre></div>
-  | CLI option         | Description                                                                 |
-  | ------------------ | --------------------------------------------------------------------------- |
-  | <code>&lt;servers&gt;</code>        | Any server (singel, group or all) as defined in the inventory file          |
-  | <code>-m &lt;module_name&gt;</code> | Specifies the module name.                                                  |
-  | <code>-a &lt;parameters&gt;</code>  | Specifies the parameters to be passed to the module. Optional in most cases |</li>
-</ul>
-<h4 id="003-modules-0301-ping">03.01. <code>ping</code><a class="headerlink" href="#003-modules-0301-ping" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Docs: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html</li>
-<li>We are already familiar with ping </li>
-</ul>
-<blockquote>
-<p>[!TIP]
-This is a module that determines whether Ansible can &ldquo;communicate as Ansible&rdquo; to the node it is working 
-on (which is different from ICMP used in the network). 
-Ping module parameters are optional.</p>
-</blockquote>
-<ul>
-<li>Usage:</li>
-</ul>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#003-modules-__codelineno-4-1"></a><span class="c1"># Ping all server in the inventory</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#003-modules-__codelineno-4-2"></a>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>ping
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#003-modules-__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#003-modules-__codelineno-4-4"></a><span class="c1"># In our demo lab we will execute it like this:</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#003-modules-__codelineno-4-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible all -m ping&quot;</span>
-</span></code></pre></div>
-<ul>
-<li>Output
-  <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#003-modules-__codelineno-5-1"></a>linux-server-1 | SUCCESS =&gt; {
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#003-modules-__codelineno-5-2"></a>    &quot;ansible_facts&quot;: {
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#003-modules-__codelineno-5-3"></a>        &quot;discovered_interpreter_python&quot;: &quot;/usr/bin/python3&quot;
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#003-modules-__codelineno-5-4"></a>    },
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#003-modules-__codelineno-5-5"></a>    &quot;changed&quot;: false,
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#003-modules-__codelineno-5-6"></a>    &quot;ping&quot;: &quot;pong&quot;
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#003-modules-__codelineno-5-7"></a>}
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#003-modules-__codelineno-5-8"></a>linux-server-3 | SUCCESS =&gt; {
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#003-modules-__codelineno-5-9"></a>    &quot;ansible_facts&quot;: {
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#003-modules-__codelineno-5-10"></a>        &quot;discovered_interpreter_python&quot;: &quot;/usr/bin/python3&quot;
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#003-modules-__codelineno-5-11"></a>    },
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#003-modules-__codelineno-5-12"></a>    &quot;changed&quot;: false,
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#003-modules-__codelineno-5-13"></a>    &quot;ping&quot;: &quot;pong&quot;
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#003-modules-__codelineno-5-14"></a>}
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#003-modules-__codelineno-5-15"></a>linux-server-2 | SUCCESS =&gt; {
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#003-modules-__codelineno-5-16"></a>    &quot;ansible_facts&quot;: {
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#003-modules-__codelineno-5-17"></a>        &quot;discovered_interpreter_python&quot;: &quot;/usr/bin/python3&quot;
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#003-modules-__codelineno-5-18"></a>    },
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#003-modules-__codelineno-5-19"></a>    &quot;changed&quot;: false,
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#003-modules-__codelineno-5-20"></a>    &quot;ping&quot;: &quot;pong&quot;
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#003-modules-__codelineno-5-21"></a>}
-</span></code></pre></div></li>
-</ul>
-<h3 id="003-modules-0303-shell">03.03. <code>shell</code><a class="headerlink" href="#003-modules-0303-shell" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Docs: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html</li>
-</ul>
-<blockquote>
-<p>[!TIP]
-This is a module that Execute shell commands on targets</p>
-</blockquote>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#003-modules-__codelineno-6-1"></a><span class="c1"># Lets get the hostname of the server</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#003-modules-__codelineno-6-2"></a>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;hostname&#39;</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#003-modules-__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#003-modules-__codelineno-6-4"></a><span class="c1"># In our demo lab we will execute it like this:</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#003-modules-__codelineno-6-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible all -m shell -a &#39;hostname&#39;&quot;</span>
-</span></code></pre></div>
-<ul>
-<li>
-<h1 id="003-modules-output">Output<a class="headerlink" href="#003-modules-output" title="Permanent link">&para;</a></h1>
-  <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#003-modules-__codelineno-7-1"></a># ansible all -m shell -a &#39;hostname&#39; 
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#003-modules-__codelineno-7-2"></a>linux-server-3 | CHANGED | rc=0 &gt;&gt;
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#003-modules-__codelineno-7-3"></a>linux-server-3
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#003-modules-__codelineno-7-4"></a>linux-server-2 | CHANGED | rc=0 &gt;&gt;
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#003-modules-__codelineno-7-5"></a>linux-server-2
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#003-modules-__codelineno-7-6"></a>linux-server-1 | CHANGED | rc=0 &gt;&gt;
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#003-modules-__codelineno-7-7"></a>linux-server-1
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#003-modules-__codelineno-2-4"></a><span class="c1">### Output (only first few lines)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#003-modules-__codelineno-2-5"></a>&gt;<span class="w"> </span>ANSIBLE.BUILTIN.PING<span class="w">    </span><span class="o">(</span>/opt/homebrew/Cellar/ansible/9.4.0_1/libexec/lib/python3.12/site-packages/ansible/modules/ping&gt;
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#003-modules-__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#003-modules-__codelineno-2-7"></a><span class="w">      </span>A<span class="w"> </span>trivial<span class="w"> </span><span class="nb">test</span><span class="w"> </span>module,<span class="w"> </span>this<span class="w"> </span>module<span class="w"> </span>always<span class="w"> </span>returns<span class="w"> </span><span class="sb">`</span>pong<span class="s1">&#39; on successful contact. It does</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#003-modules-__codelineno-2-8"></a><span class="s1">      not make sense in playbooks, but it is useful from `/usr/bin/ansible&#39;</span><span class="w"> </span>to<span class="w"> </span>verify<span class="w"> </span>the
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#003-modules-__codelineno-2-9"></a><span class="w">      </span>ability<span class="w"> </span>to<span class="w"> </span>login<span class="w"> </span>and<span class="w"> </span>that<span class="w"> </span>a<span class="w"> </span>usable<span class="w"> </span>Python<span class="w"> </span>is<span class="w"> </span>configured.<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>NOT<span class="w"> </span>ICMP<span class="w"> </span>ping,<span class="w"> </span>this<span class="w"> </span>is
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#003-modules-__codelineno-2-10"></a><span class="w">      </span>just<span class="w"> </span>a<span class="w"> </span>trivial<span class="w"> </span><span class="nb">test</span><span class="w"> </span>module<span class="w"> </span>that<span class="w"> </span>requires<span class="w"> </span>Python<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>remote-node.<span class="w"> </span>For<span class="w"> </span>Windows<span class="w"> </span>targets,
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#003-modules-__codelineno-2-11"></a><span class="w">      </span>use<span class="w"> </span>the<span class="w"> </span><span class="o">[</span>ansible.windows.win_ping<span class="o">]</span><span class="w"> </span>module<span class="w"> </span>instead.<span class="w"> </span>For<span class="w"> </span>Network<span class="w"> </span>targets,<span class="w"> </span>use<span class="w"> </span>the
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#003-modules-__codelineno-2-12"></a><span class="w">      </span><span class="o">[</span>ansible.netcommon.net_ping<span class="o">]</span><span class="w"> </span>module<span class="w"> </span>instead.
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#003-modules-__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#003-modules-__codelineno-2-14"></a>ADDED<span class="w"> </span>IN:<span class="w"> </span>historical
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#003-modules-__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#003-modules-__codelineno-2-16"></a>OPTIONS<span class="w"> </span><span class="o">(=</span><span class="w"> </span>is<span class="w"> </span>mandatory<span class="o">)</span>:
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#003-modules-__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#003-modules-__codelineno-2-18"></a>-<span class="w"> </span>data
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#003-modules-__codelineno-2-19"></a><span class="w">      </span>Data<span class="w"> </span>to<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span><span class="sb">`</span>ping<span class="err">&#39;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span>value.
 </span></code></pre></div></li>
 </ul>
 <hr />
-<p><img src="../../resources/practice.png" height="100px"></p>
-<h3 id="003-modules-hands-on">Hands-on<a class="headerlink" href="#003-modules-hands-on" title="Permanent link">&para;</a></h3>
+<h2 id="003-modules-09-common-ad-hoc-commands">09. Common ad-hoc commands<a class="headerlink" href="#003-modules-09-common-ad-hoc-commands" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Invoking a module is referred to as an <code>ad-hoc command</code>.</li>
+<li>
+<p>The syntax of an <code>ad-hoc command</code> is as follows:
+  <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#003-modules-__codelineno-3-1"></a>$<span class="w"> </span>ansible<span class="w"> </span>&lt;servers&gt;<span class="w"> </span>-m<span class="w"> </span>&lt;module_name&gt;<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;&lt;parameters&gt;&#39;</span>
+</span></code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>CLI option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;servers&gt;</code></td>
+<td>Any server (singel, group or all) as defined in the inventory file</td>
+</tr>
+<tr>
+<td><code>-m &lt;module_name&gt;</code></td>
+<td>Specifies the module name</td>
+</tr>
+<tr>
+<td><code>-a &lt;parameters&gt;</code></td>
+<td>Specifies the parameters to be passed to the module. Optional in most cases</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<hr />
+<h2 id="003-modules-10-ping-usage">10. <code>Ping</code> usage<a class="headerlink" href="#003-modules-10-ping-usage" title="Permanent link">&para;</a></h2>
+<ul>
+<li>We are already familiarized with the <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html">ping module</a>. </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Tips</p>
+<ul>
+<li>The <code>ping</code> module is a module that determines whether Ansible can &ldquo;communicate as Ansible&rdquo; with the node it is working on (which is different from ICMP used in the network). </li>
+<li>The <code>ping</code> module parameters are optional.</li>
+</ul>
+</div>
+<ul>
+<li>Usage:</li>
+</ul>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#003-modules-__codelineno-4-1"></a><span class="w">  </span><span class="c1"># Ping all server in the inventory</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#003-modules-__codelineno-4-2"></a><span class="w">  </span>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>ping
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#003-modules-__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#003-modules-__codelineno-4-4"></a><span class="w">  </span><span class="c1"># In our demo lab we will execute it, as follows:</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#003-modules-__codelineno-4-5"></a><span class="w">  </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible all -m ping&quot;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#003-modules-__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#003-modules-__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#003-modules-__codelineno-4-8"></a><span class="w">  </span><span class="c1">### Output</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#003-modules-__codelineno-4-9"></a><span class="w">  </span>linux-server-1<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">SUCCESS</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#003-modules-__codelineno-4-10"></a><span class="w">      </span><span class="s2">&quot;ansible_facts&quot;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#003-modules-__codelineno-4-11"></a><span class="w">          </span><span class="s2">&quot;discovered_interpreter_python&quot;</span>:<span class="w"> </span><span class="s2">&quot;/usr/bin/python3&quot;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#003-modules-__codelineno-4-12"></a><span class="w">      </span><span class="o">}</span>,
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#003-modules-__codelineno-4-13"></a><span class="w">      </span><span class="s2">&quot;changed&quot;</span>:<span class="w"> </span>false,
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#003-modules-__codelineno-4-14"></a><span class="w">      </span><span class="s2">&quot;ping&quot;</span>:<span class="w"> </span><span class="s2">&quot;pong&quot;</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#003-modules-__codelineno-4-15"></a><span class="w">  </span><span class="o">}</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#003-modules-__codelineno-4-16"></a><span class="w">  </span>linux-server-3<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">SUCCESS</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#003-modules-__codelineno-4-17"></a><span class="w">      </span><span class="s2">&quot;ansible_facts&quot;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#003-modules-__codelineno-4-18"></a><span class="w">          </span><span class="s2">&quot;discovered_interpreter_python&quot;</span>:<span class="w"> </span><span class="s2">&quot;/usr/bin/python3&quot;</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#003-modules-__codelineno-4-19"></a><span class="w">      </span><span class="o">}</span>,
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#003-modules-__codelineno-4-20"></a><span class="w">      </span><span class="s2">&quot;changed&quot;</span>:<span class="w"> </span>false,
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#003-modules-__codelineno-4-21"></a><span class="w">      </span><span class="s2">&quot;ping&quot;</span>:<span class="w"> </span><span class="s2">&quot;pong&quot;</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#003-modules-__codelineno-4-22"></a><span class="w">  </span><span class="o">}</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#003-modules-__codelineno-4-23"></a><span class="w">  </span>linux-server-2<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">SUCCESS</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#003-modules-__codelineno-4-24"></a><span class="w">      </span><span class="s2">&quot;ansible_facts&quot;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#003-modules-__codelineno-4-25"></a><span class="w">          </span><span class="s2">&quot;discovered_interpreter_python&quot;</span>:<span class="w"> </span><span class="s2">&quot;/usr/bin/python3&quot;</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#003-modules-__codelineno-4-26"></a><span class="w">      </span><span class="o">}</span>,
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#003-modules-__codelineno-4-27"></a><span class="w">      </span><span class="s2">&quot;changed&quot;</span>:<span class="w"> </span>false,
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#003-modules-__codelineno-4-28"></a><span class="w">      </span><span class="s2">&quot;ping&quot;</span>:<span class="w"> </span><span class="s2">&quot;pong&quot;</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#003-modules-__codelineno-4-29"></a><span class="w">  </span><span class="o">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="003-modules-11-the-shell-module">11. The <code>shell</code> module<a class="headerlink" href="#003-modules-11-the-shell-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li>This is a module that executes shell commands on targets&rsquo; nodes.</li>
+<li>See <code>Ansible</code> <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html">documentation about the <code>shell</code> module</a>.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">TIP</p>
+<p>Be cautious when using the <code>shell</code> module, as it can introduce security risks if not used properly. Always validate and sanitize any user input that may be passed to shell commands.</p>
+</div>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#003-modules-__codelineno-5-1"></a><span class="c1"># Let&#39;s get the hostname of the server</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#003-modules-__codelineno-5-2"></a>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;hostname&#39;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#003-modules-__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#003-modules-__codelineno-5-4"></a><span class="c1"># In our demo lab we will execute it like this:</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#003-modules-__codelineno-5-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible all -m shell -a &#39;hostname&#39;&quot;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#003-modules-__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#003-modules-__codelineno-5-7"></a><span class="c1"># Output</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#003-modules-__codelineno-5-8"></a><span class="c1"># ansible all -m shell -a &#39;hostname&#39; </span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#003-modules-__codelineno-5-9"></a>linux-server-3<span class="w"> </span><span class="p">|</span><span class="w"> </span>CHANGED<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">rc</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>&gt;&gt;
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#003-modules-__codelineno-5-10"></a>linux-server-3
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#003-modules-__codelineno-5-11"></a>linux-server-2<span class="w"> </span><span class="p">|</span><span class="w"> </span>CHANGED<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">rc</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>&gt;&gt;
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#003-modules-__codelineno-5-12"></a>linux-server-2
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#003-modules-__codelineno-5-13"></a>linux-server-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>CHANGED<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">rc</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>&gt;&gt;
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#003-modules-__codelineno-5-14"></a>linux-server-1
+</span></code></pre></div>
+<hr />
+<p><img src="../assets/images/practice.png" alt="Practice" width="800"/></p>
+<h2 id="003-modules-12-hands-on">12. Hands-on<a class="headerlink" href="#003-modules-12-hands-on" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Figure out way to run the following (shell) command with <code>Ansible</code>, on any of the servers:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#003-modules-__codelineno-8-1"></a><span class="c1"># Get kernel information</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#003-modules-__codelineno-8-2"></a>uname<span class="w"> </span>-a
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#003-modules-__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#003-modules-__codelineno-8-4"></a><span class="c1"># Get a date</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#003-modules-__codelineno-8-5"></a>date
+<p>Figure out a way to run the following (shell) command with <code>Ansible</code>, on any of the servers:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#003-modules-__codelineno-6-1"></a><span class="c1"># Get kernel information</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#003-modules-__codelineno-6-2"></a>uname<span class="w"> </span>-a
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#003-modules-__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#003-modules-__codelineno-6-4"></a><span class="c1"># Get a date</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#003-modules-__codelineno-6-5"></a>date
 </span></code></pre></div>
 </li>
 <li>
-<p>Use the ansible <code>command</code> module to print out the previous shell commands.</p>
+<p>Use the Ansible <code>command</code> module to print out the previous shell commands.</p>
 </li>
 <li>
-<p>Try to run the following command: <code>git config -l</code>.
-    &gt; What is the result of this command?</p>
+<p>Try to run the following command: 
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#003-modules-__codelineno-7-1"></a>git<span class="w"> </span>config<span class="w"> </span>-l
+</span></code></pre></div>
+  What is the result of this command?</p>
 </li>
 </ol>
-<h3 id="003-modules-solution">Solution<a class="headerlink" href="#003-modules-solution" title="Permanent link">&para;</a></h3>
+<h2 id="003-modules-13-solution">13. Solution<a class="headerlink" href="#003-modules-13-solution" title="Permanent link">&para;</a></h2>
 <details>
     <summary>uname -a</summary>
 
-    <div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#003-modules-__codelineno-9-1"></a><span class="c1"># Using the shell module</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#003-modules-__codelineno-9-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible linux-server-1 -m shell -a &#39;uname -a&#39;&quot;</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#003-modules-__codelineno-9-3"></a>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#003-modules-__codelineno-9-4"></a><span class="c1">#Using the ansible `command` module</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#003-modules-__codelineno-9-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible linux-server-1 -m command -a &#39;uname -a&#39;&quot;</span>
+    <div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#003-modules-__codelineno-8-1"></a><span class="c1"># Using the shell module</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#003-modules-__codelineno-8-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible linux-server-1 -m shell -a &#39;uname -a&#39;&quot;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#003-modules-__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#003-modules-__codelineno-8-4"></a><span class="c1">#Using the ansible `command` module</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#003-modules-__codelineno-8-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible linux-server-1 -m command -a &#39;uname -a&#39;&quot;</span>
 </span></code></pre></div>
   </details>
 
 <details>
     <summary>date</summary>
 
-    <div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#003-modules-__codelineno-10-1"></a><span class="c1"># Using the shell module</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#003-modules-__codelineno-10-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible linux-server-1 -m shell -a &#39;date&#39;&quot;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#003-modules-__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#003-modules-__codelineno-10-4"></a><span class="c1">#Using the ansible `command` module</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#003-modules-__codelineno-10-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible linux-server-1 -m command -a &#39;date&#39;&quot;</span>
+    <div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#003-modules-__codelineno-9-1"></a><span class="c1"># Using the shell module</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#003-modules-__codelineno-9-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible linux-server-1 -m shell -a &#39;date&#39;&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#003-modules-__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#003-modules-__codelineno-9-4"></a><span class="c1">#Using the ansible `command` module</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#003-modules-__codelineno-9-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible linux-server-1 -m command -a &#39;date&#39;&quot;</span>
 </span></code></pre></div>
   </details>
 
-<hr />
-<!--- Labs Navigation Start -->
-<p style="text-align: center;">  
-    <a href="#labs-002-no-inventory">:arrow_backward: /Labs/002-no-inventory</a>
-    &emsp;<a href="#labs">Back to labs list</a>
-    &emsp;<a href="#labs-004-playbooks">/Labs/004-playbooks :arrow_forward:</a>
-</p>
-<!--- Labs Navigation End --></section><section class="print-page" id="004-playbooks" heading-number="2.6"><div align="center">
+<details>
+    <summary>previous shell commands</summary>
+
+    <div class="language-sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#003-modules-__codelineno-10-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible all -m command -a &#39;uname -a&#39;&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#003-modules-__codelineno-10-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ansible-controller<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /labs-scripts &amp;&amp; ansible all -m command -a &#39;date&#39;&quot;</span>
+</span></code></pre></div>
+  </details>
+
+<details>
+    <summary>git config</summary>
+
+    <div class="language-sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#003-modules-__codelineno-11-1"></a><span class="c1"># The command</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#003-modules-__codelineno-11-2"></a>git<span class="w"> </span>config<span class="w"> </span>-l
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#003-modules-__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#003-modules-__codelineno-11-4"></a><span class="c1">### Output</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#003-modules-__codelineno-11-5"></a>user.name<span class="o">=</span>Your<span class="w"> </span>Name
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#003-modules-__codelineno-11-6"></a>user.email<span class="o">=</span>your.email@example.com
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#003-modules-__codelineno-11-7"></a>core.repositoryformatversion<span class="o">=</span><span class="m">0</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#003-modules-__codelineno-11-8"></a>core.filemode<span class="o">=</span><span class="nb">true</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#003-modules-__codelineno-11-9"></a>core.bare<span class="o">=</span><span class="nb">false</span>
+</span></code></pre></div>
+  </details></section><section class="print-page" id="004-playbooks" heading-number="2.6"><div align="center">
     <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
 
   ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
