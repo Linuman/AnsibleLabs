@@ -2638,33 +2638,22 @@ for you, so feel free to write it any way which works best for you.</p>
 <p class="admonition-title">TIP</p>
 <p>It&rsquo;s considered best practice to use the FQDN name of all modules used in your playbook.
 It is done to prevent naming collision between builtin modules and community modules or self made ones.</p>
-</div></section><section class="print-page" id="005-facts" heading-number="2.7"><div align="center">
-    <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
-
-  ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
-  [![Linkedin Badge](https://img.shields.io/badge/-nirgeier-blue?style=flat&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nirgeier/)](https://www.linkedin.com/in/nirgeier/) 
-  [![Gmail Badge](https://img.shields.io/badge/-nirgeier@gmail.com-fcc624?style=flat&logo=Gmail&logoColor=red&link=mailto:nirgeier@gmail.com)](mailto:nirgeier@gmail.com) [![Outlook Badge](https://img.shields.io/badge/-nirg@codewizard.co.il-fcc624?style=flat&logo=microsoftoutlook&logoColor=blue&link=mailto:nirg@codewizard.co.il)](mailto:nirg@codewizard.co.il) 
-  <a href="#005-facts"><img src="https://img.shields.io/github/stars/nirgeier/AnsibleLabs"></a> 
-  <img src="https://img.shields.io/github/forks/nirgeier/AnsibleLabs">  
-  <a href="https://discord.gg/U6xW23Ss"><img src="https://img.shields.io/badge/discord-7289da.svg?style=plastic&logo=discord" alt="discord" style="height: 20px;"></a>
-  <img src="https://img.shields.io/github/contributors-anon/nirgeier/AnsibleLabs?color=yellow&style=plastic" alt="contributors" style="height: 20px;"></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/apache%202.0-blue.svg?style=plastic&label=license" alt="license" style="height: 20px;"></a>
-  <a href="https://github.com/nirgeier/AnsibleLabs/pulls"><img src="https://img.shields.io/github/issues-pr/nirgeier/AnsibleLabs?style=plastic&logo=pr" alt="Pull Requests" style="height: 20px;"></a> 
-
-If you appreciate the effort, Please <img src="https://raw.githubusercontent.com/nirgeier/labs-assets/main/assets/images/star.png" height="20px"> this project
-
-</div>
-
+</div></section><section class="print-page" id="005-facts" heading-number="2.7"><p><a href="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-005.yaml" target="_blank">
+  <img src="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-005.yaml/badge.svg" alt="Build Status">
+</a></p>
 <hr />
 <h1 id="005-facts-lab-005-facts">Lab 005 - Facts<a class="headerlink" href="#005-facts-lab-005-facts" title="Permanent link">&para;</a></h1>
 <ul>
-<li>In this section, we will cover <strong>Ansible Facts</strong> </li>
-<li><strong>Ansible facts</strong> are &ldquo;Ansible Scripts&rdquo; and are one of the building blocks of Ansible.</li>
-<li><strong>Ansible facts</strong> are data related to your <strong>remote systems</strong>, including operating systems, IP addresses, attached filesystems, and more. </li>
-<li><strong>Ansible facts</strong> are gathered about target nodes (host nodes to be configured) and returned back to controller nodes.</li>
+<li>In this section, we will cover <strong>Ansible Facts</strong>.</li>
+<li><strong>Ansible facts</strong> are essentially &ldquo;Ansible Scripts&rdquo; and constitute one of the building blocks of Ansible.</li>
+<li><strong>Ansible facts</strong> are data corresponding to your <strong>remote systems</strong>, which includes operating systems, IP addresses, attached filesystems, and more.</li>
+<li><strong>Ansible facts</strong> are gathered, and relate to target nodes (host nodes to be configured). They are returned back to the controller node.</li>
 </ul>
-<h2 id="005-facts-how-to-view-facts"><strong>How to View Facts?</strong><a class="headerlink" href="#005-facts-how-to-view-facts" title="Permanent link">&para;</a></h2>
-<p>You can view facts of a remote machine by running:</p>
+<h2 id="005-facts-01-how-to-view-facts">01. <strong>How to View Facts?</strong><a class="headerlink" href="#005-facts-01-how-to-view-facts" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ansible gathers facts about remote systems using the <code>setup</code> module.</li>
+<li>You can view facts of a remote machine by running the following command:</li>
+</ul>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#005-facts-__codelineno-0-1"></a>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>setup
 </span></code></pre></div>
 <p>🔹 Example Output (Truncated for brevity):</p>
@@ -2687,12 +2676,14 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#005-facts-__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#005-facts-__codelineno-1-18"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="005-facts-how-to-use-facts-in-playbooks"><strong>How to Use Facts in Playbooks?</strong><a class="headerlink" href="#005-facts-how-to-use-facts-in-playbooks" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="005-facts-02-how-to-use-facts-in-playbooks">02. <strong>How to use facts in playbooks?</strong><a class="headerlink" href="#005-facts-02-how-to-use-facts-in-playbooks" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Facts allows you to base your playbook logic on the properties of the target hosts.</li>
+<li>Facts allow you to base your playbook logic on the properties of the target hosts.</li>
 <li>all facts are prefixed with <code>ansible_x</code>.</li>
 </ul>
-<h3 id="005-facts-example-installing-packages-based-on-os"><strong>Example: Installing Packages Based on OS</strong><a class="headerlink" href="#005-facts-example-installing-packages-based-on-os" title="Permanent link">&para;</a></h3>
+<p><br></p>
+<h4 id="005-facts-example-installing-packages-based-on-os"><strong>Example: Installing Packages Based on OS</strong><a class="headerlink" href="#005-facts-example-installing-packages-based-on-os" title="Permanent link">&para;</a></h4>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#005-facts-__codelineno-2-1"></a><span class="nn">---</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#005-facts-__codelineno-2-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#005-facts-__codelineno-2-3"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
@@ -2708,15 +2699,17 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#005-facts-__codelineno-2-13"></a><span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#005-facts-__codelineno-2-14"></a><span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;CentOS&quot;</span>
 </span></code></pre></div>
-<h3 id="005-facts-example-conditional-execution-based-on-memory"><strong>Example: Conditional Execution Based on Memory</strong><a class="headerlink" href="#005-facts-example-conditional-execution-based-on-memory" title="Permanent link">&para;</a></h3>
+<p><br></p>
+<h4 id="005-facts-example-conditional-execution-based-on-memory"><strong>Example: Conditional execution based on memory</strong><a class="headerlink" href="#005-facts-example-conditional-execution-based-on-memory" title="Permanent link">&para;</a></h4>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#005-facts-__codelineno-3-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart Service if Memory is Low</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#005-facts-__codelineno-3-2"></a><span class="w">  </span><span class="nt">ansible.builtin.service</span><span class="p">:</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#005-facts-__codelineno-3-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_service</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#005-facts-__codelineno-3-4"></a><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restarted</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#005-facts-__codelineno-3-5"></a><span class="w">  </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible_memory_mb.real.total &lt; 4000</span>
 </span></code></pre></div>
-<h2 id="005-facts-commonly-used-facts"><strong>Commonly Used Facts</strong><a class="headerlink" href="#005-facts-commonly-used-facts" title="Permanent link">&para;</a></h2>
-<h3 id="005-facts-system-information"><strong>System Information</strong><a class="headerlink" href="#005-facts-system-information" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="005-facts-03-commonly-used-facts">03. <strong>Commonly used facts</strong><a class="headerlink" href="#005-facts-03-commonly-used-facts" title="Permanent link">&para;</a></h2>
+<h4 id="005-facts-system-information"><strong>System Information</strong><a class="headerlink" href="#005-facts-system-information" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -2739,7 +2732,7 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </tr>
 </tbody>
 </table>
-<h3 id="005-facts-networking"><strong>Networking</strong><a class="headerlink" href="#005-facts-networking" title="Permanent link">&para;</a></h3>
+<h4 id="005-facts-networking"><strong>Networking</strong><a class="headerlink" href="#005-facts-networking" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -2766,7 +2759,7 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </tr>
 </tbody>
 </table>
-<h3 id="005-facts-hardware"><strong>Hardware</strong><a class="headerlink" href="#005-facts-hardware" title="Permanent link">&para;</a></h3>
+<h4 id="005-facts-hardware"><strong>Hardware</strong><a class="headerlink" href="#005-facts-hardware" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -2790,8 +2783,11 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </tbody>
 </table>
 <hr />
-<h2 id="005-facts-disabling-fact-gathering"><strong>Disabling Fact Gathering</strong><a class="headerlink" href="#005-facts-disabling-fact-gathering" title="Permanent link">&para;</a></h2>
-<p>By default, Ansible gathers facts before running a playbook. To disable it:</p>
+<h2 id="005-facts-04-disabling-fact-gathering">04. <strong>Disabling fact gathering</strong><a class="headerlink" href="#005-facts-04-disabling-fact-gathering" title="Permanent link">&para;</a></h2>
+<ul>
+<li>By default, Ansible gathers facts before running a playbook. </li>
+<li>In order to disable it, add the following at the beginning of your playbook:</li>
+</ul>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#005-facts-__codelineno-4-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#005-facts-__codelineno-4-2"></a><span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#005-facts-__codelineno-4-3"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
@@ -2800,10 +2796,10 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#005-facts-__codelineno-4-6"></a><span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Facts</span><span class="nv"> </span><span class="s">gathering</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">disabled!&quot;</span>
 </span></code></pre></div>
 <hr />
-<h2 id="005-facts-custom-facts"><strong>Custom Facts</strong><a class="headerlink" href="#005-facts-custom-facts" title="Permanent link">&para;</a></h2>
-<p>You can define custom facts by creating <code>.fact</code> files in <code>/etc/ansible/facts.d/</code> on the managed host.</p>
-<h3 id="005-facts-example-creating-a-custom-fact"><strong>Example: Creating a Custom Fact</strong><a class="headerlink" href="#005-facts-example-creating-a-custom-fact" title="Permanent link">&para;</a></h3>
-<p>1️⃣ Create a file <code>/etc/ansible/facts.d/custom.fact</code> with:</p>
+<h2 id="005-facts-05-custom-facts">05. <strong>Custom Facts</strong><a class="headerlink" href="#005-facts-05-custom-facts" title="Permanent link">&para;</a></h2>
+<p>You can define custom facts by creating <code>.fact</code> files, placing them inside <code>/etc/ansible/facts.d/</code> directory on the managed host.</p>
+<h4 id="005-facts-example-creating-a-custom-fact"><strong>Example: Creating a custom fact</strong><a class="headerlink" href="#005-facts-example-creating-a-custom-fact" title="Permanent link">&para;</a></h4>
+<p>1️⃣ Create the file <code>/etc/ansible/facts.d/custom.fact</code> with:</p>
 <div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#005-facts-__codelineno-5-1"></a><span class="k">[custom]</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#005-facts-__codelineno-5-2"></a><span class="na">environment</span><span class="o">=</span><span class="s">production</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#005-facts-__codelineno-5-3"></a><span class="na">app_version</span><span class="o">=</span><span class="s">1.2.3</span>
@@ -2814,27 +2810,21 @@ If you appreciate the effort, Please <img src="https://raw.githubusercontent.com
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#005-facts-__codelineno-6-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">debug</span><span class="p">:</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#005-facts-__codelineno-6-4"></a><span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;App</span><span class="nv"> </span><span class="s">version</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">ansible_local.custom.app_version</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </span></code></pre></div>
-<h2 id="005-facts-summary"><strong>Summary</strong><a class="headerlink" href="#005-facts-summary" title="Permanent link">&para;</a></h2>
-<p>🔹 Ansible <strong>facts</strong> provide system details dynamically.<br />
-🔹 They are automatically gathered using the <code>setup</code> module.<br />
-🔹 Useful for <strong>conditional logic</strong> in playbooks.<br />
-🔹 Facts include <strong>OS, networking, CPU, memory, and more</strong>.<br />
-🔹 Custom facts can be created for <strong>customized automation</strong>.</p>
 <hr />
-<p><img src="../../resources/practice.png" width="250px">
+<h2 id="005-facts-06-hands-on">06. <strong>Hands-on</strong><a class="headerlink" href="#005-facts-06-hands-on" title="Permanent link">&para;</a></h2>
+<p><img src="../assets/images/practice.png" width="800px">
   <br/></p>
 <ul>
-<li>Print the IP addresses of all the machines</li>
-<li><strong>Bonus</strong> - Try print the addresss of <code>linux-server-2</code> only without modifying the inventory file.</li>
+<li>Print the IP addresses of all the machines.</li>
+<li><strong>Bonus</strong> - Try printing the address of <code>linux-server-2</code> only, without modifying the inventory file.</li>
 </ul>
 <hr />
-<!--- Labs Navigation Start -->
-<p style="text-align: center;">  
-    <a href="#labs-004-playbooks">:arrow_backward: /Labs/004-playbooks</a>
-    &emsp;<a href="#labs">Back to labs list</a>
-    &emsp;<a href="#labs-006-git">/Labs/006-git :arrow_forward:</a>
-</p>
-<!--- Labs Navigation End --></section><section class="print-page" id="006-git" heading-number="2.8"><div align="center">
+<h2 id="005-facts-07-summary">07. <strong>Summary</strong><a class="headerlink" href="#005-facts-07-summary" title="Permanent link">&para;</a></h2>
+<p>🔹 Ansible <strong>facts</strong> provide system details dynamically.<br />
+🔹 They are automatically gathered using the <code>setup</code> module.<br />
+🔹 They are useful for <strong>conditional logic</strong> in playbooks.<br />
+🔹 Facts may include <strong>OS, networking, CPU, memory and more</strong>.<br />
+🔹 Custom facts can be created for <strong>customized automation</strong>.</p></section><section class="print-page" id="006-git" heading-number="2.8"><div align="center">
     <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
 
   ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
