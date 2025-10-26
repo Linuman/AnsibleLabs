@@ -2824,39 +2824,60 @@ It is done to prevent naming collision between builtin modules and community mod
 🔹 They are automatically gathered using the <code>setup</code> module.<br />
 🔹 They are useful for <strong>conditional logic</strong> in playbooks.<br />
 🔹 Facts may include <strong>OS, networking, CPU, memory and more</strong>.<br />
-🔹 Custom facts can be created for <strong>customized automation</strong>.</p></section><section class="print-page" id="006-git" heading-number="2.8"><div align="center">
-    <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
-
-  ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
-  [![Linkedin Badge](https://img.shields.io/badge/-nirgeier-blue?style=flat&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nirgeier/)](https://www.linkedin.com/in/nirgeier/) 
-  [![Gmail Badge](https://img.shields.io/badge/-nirgeier@gmail.com-fcc624?style=flat&logo=Gmail&logoColor=red&link=mailto:nirgeier@gmail.com)](mailto:nirgeier@gmail.com) [![Outlook Badge](https://img.shields.io/badge/-nirg@codewizard.co.il-fcc624?style=flat&logo=microsoftoutlook&logoColor=blue&link=mailto:nirg@codewizard.co.il)](mailto:nirg@codewizard.co.il) 
-  <a href="#006-git"><img src="https://img.shields.io/github/stars/nirgeier/AnsibleLabs"></a> 
-  <img src="https://img.shields.io/github/forks/nirgeier/AnsibleLabs">  
-  <a href="https://discord.gg/U6xW23Ss"><img src="https://img.shields.io/badge/discord-7289da.svg?style=plastic&logo=discord" alt="discord" style="height: 20px;"></a>
-  <img src="https://img.shields.io/github/contributors-anon/nirgeier/AnsibleLabs?color=yellow&style=plastic" alt="contributors" style="height: 20px;"></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/apache%202.0-blue.svg?style=plastic&label=license" alt="license" style="height: 20px;"></a>
-  <a href="https://github.com/nirgeier/AnsibleLabs/pulls"><img src="https://img.shields.io/github/issues-pr/nirgeier/AnsibleLabs?style=plastic&logo=pr" alt="Pull Requests" style="height: 20px;"></a> 
-
-If you appreciate the effort, Please <img src="https://raw.githubusercontent.com/nirgeier/labs-assets/main/assets/images/star.png" height="20px"> this project
-
-</div>
-
+🔹 Custom facts can be created for <strong>customized automation</strong>.</p></section><section class="print-page" id="006-git" heading-number="2.8"><p><a href="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-006.yaml" target="_blank">
+  <img src="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-006.yaml/badge.svg" alt="Build Status">
+</a></p>
 <hr />
-<h1 id="006-git-hands-on-lab">Hands On Lab<a class="headerlink" href="#006-git-hands-on-lab" title="Permanent link">&para;</a></h1>
+<h1 id="006-git-lab-006-git-integration-with-ansible">Lab 006 - Git Integration with Ansible<a class="headerlink" href="#006-git-lab-006-git-integration-with-ansible" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Understand the Git Playbook (006-playbook-install-git)</li>
-<li>Try to write it yourself using the sample playbook</li>
-<li>Review the playbook <code>vars</code> section which is new to us</li>
-<li>In Lab 008 we will also ad task to clone git</li>
+<li>In this section, we will cover <strong><code>Git</code> integration with <code>Ansible</code></strong>.</li>
+<li>We will learn how to automate <code>Git</code> operations on remote servers using <code>Ansible</code> playbooks.</li>
+<li>This is useful for deploying code, managing repositories and keeping your infrastructure up to date.</li>
 </ul>
+<p><img src="../assets/images/Ansible-Git.png" width="800px">
+  <br/></p>
+<h2 id="006-git-01-objectives">01. <strong>Objectives</strong><a class="headerlink" href="#006-git-01-objectives" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Understand how to use <code>Ansible</code> modules to interact with <code>Git</code>.</li>
+<li>Automate cloning, updating and managing <code>Git</code> repositories.</li>
+<li>Practice using playbooks to deploy code from version control.</li>
+</ul>
+<h2 id="006-git-02-key-concepts">02. <strong>Key Concepts</strong><a class="headerlink" href="#006-git-02-key-concepts" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ansible.builtin.git</strong>: Ansible’s built-in module for managing <code>Git</code> repositories.</li>
+<li><strong>Idempotency</strong>: Ensuring thatrepeated playbook runs do not cause unwanted changes.</li>
+<li><strong>Authentication</strong>: Using <code>SSH</code> keys or <code>HTTPS</code> for secure repository access.</li>
+</ul>
+<h2 id="006-git-03-example-tasks">03. <strong>Example Tasks</strong><a class="headerlink" href="#006-git-03-example-tasks" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Clone a repository to a target server.</li>
+<li>Update the repository to the latest commit.</li>
+<li>Set up SSH keys for secure <code>Git</code> access.</li>
+</ul>
+<h4 id="006-git-example-cloning-a-git-repository"><strong>Example: Cloning a <code>Git</code> Repository</strong><a class="headerlink" href="#006-git-example-cloning-a-git-repository" title="Permanent link">&para;</a></h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#006-git-__codelineno-0-1"></a><span class="nn">---</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#006-git-__codelineno-0-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#006-git-__codelineno-0-3"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#006-git-__codelineno-0-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clone a Git repository</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#006-git-__codelineno-0-5"></a><span class="w">      </span><span class="nt">ansible.builtin.git</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#006-git-__codelineno-0-6"></a><span class="w">        </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://github.com/example/repo.git&#39;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#006-git-__codelineno-0-7"></a><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/opt/myapp</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#006-git-__codelineno-0-8"></a><span class="w">        </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#006-git-__codelineno-0-9"></a><span class="w">        </span><span class="nt">force</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+</span></code></pre></div>
 <hr />
-<!--- Labs Navigation Start -->
-<p style="text-align: center;">  
-    <a href="#labs-005-facts">:arrow_backward: /Labs/005-facts</a>
-    &emsp;<a href="#labs">Back to labs list</a>
-    &emsp;<a href="#labs-007-create-user">/Labs/007-create-user :arrow_forward:</a>
-</p>
-<!--- Labs Navigation End --></section><section class="print-page" id="007-create-user" heading-number="2.9"><div align="center">
+<h2 id="006-git-04-hands-on">04. <strong>Hands-on</strong><a class="headerlink" href="#006-git-04-hands-on" title="Permanent link">&para;</a></h2>
+<p><img src="../assets/images/practice.png" width="800px">
+  <br/></p>
+<ul>
+<li>Understand the <code>Git</code> Playbook.</li>
+<li>Try cloning a public repository to your server.</li>
+<li>Update the playbook to pull the latest changes.</li>
+<li>Experiment with deploying different branches or tags.</li>
+<li>Try to write it yourself using the sample playbook.</li>
+<li>Review the playbook <code>vars</code> section which is new to us.</li>
+<li>In Lab 008 we will also add a task to clone <code>Git</code>.</li>
+</ul></section><section class="print-page" id="007-create-user" heading-number="2.9"><div align="center">
     <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
 
   ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
