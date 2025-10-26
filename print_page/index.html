@@ -2967,50 +2967,22 @@ It is done to prevent naming collision between builtin modules and community mod
 <li>Use variables for usernames and passwords to avoid hardcoding.</li>
 <li>Document your playbooks for clarity.</li>
 <li>Clean up users with <code>state: absent</code> when needed.</li>
-</ul></section><section class="print-page" id="008-challenges" heading-number="2.10"><div align="center">
-    <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
-
-  ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
-  [![Linkedin Badge](https://img.shields.io/badge/-nirgeier-blue?style=flat&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nirgeier/)](https://www.linkedin.com/in/nirgeier/) 
-  [![Gmail Badge](https://img.shields.io/badge/-nirgeier@gmail.com-fcc624?style=flat&logo=Gmail&logoColor=red&link=mailto:nirgeier@gmail.com)](mailto:nirgeier@gmail.com) [![Outlook Badge](https://img.shields.io/badge/-nirg@codewizard.co.il-fcc624?style=flat&logo=microsoftoutlook&logoColor=blue&link=mailto:nirg@codewizard.co.il)](mailto:nirg@codewizard.co.il) 
-  <a href="#008-challenges"><img src="https://img.shields.io/github/stars/nirgeier/AnsibleLabs"></a> 
-  <img src="https://img.shields.io/github/forks/nirgeier/AnsibleLabs">  
-  <a href="https://discord.gg/U6xW23Ss"><img src="https://img.shields.io/badge/discord-7289da.svg?style=plastic&logo=discord" alt="discord" style="height: 20px;"></a>
-  <img src="https://img.shields.io/github/contributors-anon/nirgeier/AnsibleLabs?color=yellow&style=plastic" alt="contributors" style="height: 20px;"></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/apache%202.0-blue.svg?style=plastic&label=license" alt="license" style="height: 20px;"></a>
-  <a href="https://github.com/nirgeier/AnsibleLabs/pulls"><img src="https://img.shields.io/github/issues-pr/nirgeier/AnsibleLabs?style=plastic&logo=pr" alt="Pull Requests" style="height: 20px;"></a> 
-
-If you appreciate the effort, Please <img src="https://raw.githubusercontent.com/nirgeier/labs-assets/main/assets/images/star.png" height="20px"> this project
-
-</div>
-
+</ul></section><section class="print-page" id="008-challenges" heading-number="2.10"><p><a href="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-008.yaml" target="_blank">
+  <img src="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-008.yaml/badge.svg" alt="Build Status">
+</a></p>
 <hr />
-<h1 id="008-challenges-hands-on-lab">Hands On Lab<a class="headerlink" href="#008-challenges-hands-on-lab" title="Permanent link">&para;</a></h1>
-<h3 id="008-challenges-task-01">Task 01:<a class="headerlink" href="#008-challenges-task-01" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Create user named <hostname> for each machine</li>
-<li>Verify that the user was created</li>
-<li>Create an ansible inventory with the username in the configuration
+<h1 id="008-challenges-lab-008-challenges">Lab 008 - Challenges<a class="headerlink" href="#008-challenges-lab-008-challenges" title="Permanent link">&para;</a></h1>
+<h2 id="008-challenges-01-task-01">01. Task 01:<a class="headerlink" href="#008-challenges-01-task-01" title="Permanent link">&para;</a></h2>
+<p>1️⃣ Create a user named <code>&lt;hostname&gt;</code> for each machine.</p>
+<p>2️⃣ Verify that the user was created.</p>
+<p>3️⃣ Create an ansible inventory with the username in the configuration, using the format below:
   <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#008-challenges-__codelineno-0-1"></a>&lt;hostname&gt;<span class="w">    </span><span class="nv">ansible_host</span><span class="o">=</span>&lt;hostname&gt;<span class="w"> </span><span class="nv">ansible_ssh_user</span><span class="o">=</span>&lt;user&gt;
-</span></code></pre></div></li>
-</ul>
+</span></code></pre></div></p>
 <hr />
-<h3 id="008-challenges-task-02">Task 02:<a class="headerlink" href="#008-challenges-task-02" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Clone a git repository from you github account</li>
-<li>Commit changes to the repository</li>
-<li>Push the changes to the repository</li>
-</ul>
-<hr />
-<p>Good luck</p>
-<hr />
-<!--- Labs Navigation Start -->
-<p style="text-align: center;">  
-    <a href="#labs-007-create-user">:arrow_backward: /Labs/007-create-user</a>
-    &emsp;<a href="#labs">Back to labs list</a>
-    &emsp;<a href="#labs-009-roles">/Labs/009-roles :arrow_forward:</a>
-</p>
-<!--- Labs Navigation End --></section><section class="print-page" id="009-roles" heading-number="2.11"><div align="center">
+<h2 id="008-challenges-02-task-02">02. Task 02:<a class="headerlink" href="#008-challenges-02-task-02" title="Permanent link">&para;</a></h2>
+<p>1️⃣ Clone a <code>git</code> repository from your <a href="https://github.com">GitHub</a> or <a href="https://gitlab.com">GitLab</a> account.</p>
+<p>2️⃣ Commit changes to the repository.</p>
+<p>3️⃣ Push the changes to the repository.</p></section><section class="print-page" id="009-roles" heading-number="2.11"><div align="center">
     <a href="https://stackoverflow.com/users/1755598/codewizard"><img src="https://stackoverflow.com/users/flair/1755598.png" height="50" alt="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for CodeWizard at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
 
   ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
