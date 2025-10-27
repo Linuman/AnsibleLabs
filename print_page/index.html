@@ -3385,32 +3385,22 @@ It is done to prevent naming collision between builtin modules and community mod
 <ul>
 <li>Try writing a playbook that installs different packages based on the OS family.</li>
 <li>Try to use as many parts as you can (external vars, vars, loops, conditions etc) while doing so.</li>
-</ul></section><section class="print-page" id="011-jinja-templating" heading-number="2.13"><p><img alt="" src="../../resources/ansible_logo.png" /></p>
-<p><a href="https://stackoverflow.com/users/1755598"><img src="https://stackexchange.com/users/flair/1951642.png" width="208" height="58" alt="profile for CodeWizard on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for CodeWizard on Stack Exchange, a network of free, community-driven Q&amp;A sites"></a></p>
-<p><a href="https://github.com/nirgeier/AnsibleLabs/actions/workflows/004-playbooks.yaml"><img src="https://img.shields.io/github/actions/workflow/status/nirgeier/AnsibleLabs/004-playbooks.yaml?branch=main&style=flat" style="height: 20px;"></a> <img alt="Visitor Badge" src="https://visitor-badge.laobi.icu/badge?page_id=nirgeier" /> <a href="https://www.linkedin.com/in/nirgeier/"><img alt="Linkedin Badge" src="https://img.shields.io/badge/-nirgeier-blue?style=flat&amp;logo=Linkedin&amp;logoColor=white&amp;link=https://www.linkedin.com/in/nirgeier/" /></a> <a href="mailto:nirgeier@gmail.com"><img alt="Gmail Badge" src="https://img.shields.io/badge/-nirgeier@gmail.com-fcc624?style=plastic&amp;logo=Gmail&amp;logoColor=red&amp;link=mailto:nirgeier@gmail.com" /></a> <a href="mailto:nirg@codewizard.co.il"><img alt="Outlook Badge" src="https://img.shields.io/badge/-nirg@codewizard.co.il-fcc624?style=plastic&amp;logo=microsoftoutlook&amp;logoColor=blue&amp;link=mailto:nirg@codewizard.co.il" /></a></p>
-<hr />
-<ul>
-<li><a href="#011-jinja-templating-lab-011---jinja2-templating">Lab 011 - <code>Jinja2</code> Templating</a></li>
-<li><a href="#011-jinja-templating-01-creating-jinja2-templates">01. Creating Jinja2 Templates</a></li>
-<li><a href="#011-jinja-templating-02-using-templates-in-playbooks">02. Using Templates in Playbooks</a></li>
-<li><a href="#011-jinja-templating-03-using-conditional-statements">03. Using Conditional Statements</a></li>
-<li><a href="#011-jinja-templating-04-looping-with-jinja2">04. Looping with <code>Jinja2</code></a></li>
-<li><a href="#011-jinja-templating-05-filters-and-functions">05. Filters and Functions</a></li>
-<li><a href="#011-jinja-templating-summary"><strong>Summary</strong></a></li>
-</ul>
+</ul></section><section class="print-page" id="011-jinja-templating" heading-number="2.13"><p><a href="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-011.yaml" target="_blank">
+  <img src="https://github.com/nirgeier/AnsibleLabs/actions/workflows/Lab-011.yaml/badge.svg" alt="Build Status">
+</a></p>
 <hr />
 <h1 id="011-jinja-templating-lab-011-jinja2-templating">Lab 011 - <code>Jinja2</code> Templating<a class="headerlink" href="#011-jinja-templating-lab-011-jinja2-templating" title="Permanent link">&para;</a></h1>
 <ul>
-<li>In our day to day job we come across dozens of <strong>configuration files</strong> in many different formats.</li>
-<li>What happens if we need to configure different environments, each with his own values? Should we duplicate the same file for each?</li>
-<li>Here comes <code>Jinja2</code> templates for the rescue! It helps us template our configuration files to be used with different values and reduce duplication.</li>
+<li>During our day to day job, we come across dozens of <strong>configuration files</strong>, set in many different formats.</li>
+<li>What happens if we need to configure different environments, each with its own values? Should we duplicate the same file for each one?</li>
+<li>This is where <code>Jinja2</code> templates come to the rescue! <code>Jinja2</code> helps us template our configuration files to be used with different values and reduce duplications.</li>
 <li><code>Jinja2</code> is a powerful templating engine integrated into Ansible, used commonly in python projects.</li>
-<li>Templates allow dynamic configuration file generation based on variables and facts.</li>
+<li>Templates allow dynamic configuration file generation, based on variables and facts.</li>
 <li><code>Jinja2</code> can be used with conditionals and loops and can even perform filters and functions on our values!</li>
 </ul>
-<h2 id="011-jinja-templating-01-creating-jinja2-templates">01. Creating Jinja2 Templates<a class="headerlink" href="#011-jinja-templating-01-creating-jinja2-templates" title="Permanent link">&para;</a></h2>
+<h2 id="011-jinja-templating-01-creating-jinja2-templates">01. Creating Jinja2 templates<a class="headerlink" href="#011-jinja-templating-01-creating-jinja2-templates" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Create a Jinja2 template file by appending <code>.j2</code> to our base config file, for example, <code>nginx.conf.j2</code>:</li>
+<li>Create a <code>Jinja2</code> template file by appending a <code>.j2</code> suffix to our base config filename. For example, <code>nginx.conf.j2</code>:</li>
 </ul>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#011-jinja-templating-__codelineno-0-1"></a># Example
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#011-jinja-templating-__codelineno-0-2"></a>
@@ -3426,9 +3416,10 @@ It is done to prevent naming collision between builtin modules and community mod
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#011-jinja-templating-__codelineno-0-12"></a>  }
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#011-jinja-templating-__codelineno-0-13"></a>}
 </span></code></pre></div>
-<h2 id="011-jinja-templating-02-using-templates-in-playbooks">02. Using Templates in Playbooks<a class="headerlink" href="#011-jinja-templating-02-using-templates-in-playbooks" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="011-jinja-templating-02-using-templates-in-playbooks">02. Using templates in playbooks<a class="headerlink" href="#011-jinja-templating-02-using-templates-in-playbooks" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Integrate Jinja2 templates using the <code>ansible.builtin.template</code> module:</li>
+<li>Integrate <code>Jinja2</code> templates using the <code>ansible.builtin.template</code> module:</li>
 </ul>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#011-jinja-templating-__codelineno-1-1"></a><span class="nn">---</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#011-jinja-templating-__codelineno-1-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web_servers</span>
@@ -3450,9 +3441,10 @@ It is done to prevent naming collision between builtin modules and community mod
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#011-jinja-templating-__codelineno-1-18"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#011-jinja-templating-__codelineno-1-19"></a><span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restarted</span>
 </span></code></pre></div>
-<h2 id="011-jinja-templating-03-using-conditional-statements">03. Using Conditional Statements<a class="headerlink" href="#011-jinja-templating-03-using-conditional-statements" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="011-jinja-templating-03-using-conditional-statements">03. Using conditional statements<a class="headerlink" href="#011-jinja-templating-03-using-conditional-statements" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Jinja2 supports conditional logic to dynamically alter configurations:</li>
+<li><code>jinja2</code> supports conditional logic to dynamically alter configurations:</li>
 </ul>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#011-jinja-templating-__codelineno-2-1"></a>{% if ansible_distribution == &#39;Ubuntu&#39; %}
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#011-jinja-templating-__codelineno-2-2"></a>User ubuntu;
@@ -3462,16 +3454,18 @@ It is done to prevent naming collision between builtin modules and community mod
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#011-jinja-templating-__codelineno-2-6"></a>User default;
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#011-jinja-templating-__codelineno-2-7"></a>{% endif %}
 </span></code></pre></div>
+<hr />
 <h2 id="011-jinja-templating-04-looping-with-jinja2">04. Looping with <code>Jinja2</code><a class="headerlink" href="#011-jinja-templating-04-looping-with-jinja2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Iterate over lists or dictionaries easily:</li>
+<li><code>Jinja2</code> makes it easy to iterate over lists or dictionaries:</li>
 </ul>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#011-jinja-templating-__codelineno-3-1"></a># hosts file
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#011-jinja-templating-__codelineno-3-2"></a>{% for host in groups[&#39;web_servers&#39;] %}
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#011-jinja-templating-__codelineno-3-3"></a>{{ hostvars[host][&#39;ansible_default_ipv4&#39;][&#39;address&#39;] }} {{ host }}
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#011-jinja-templating-__codelineno-3-4"></a>{% endfor %}
 </span></code></pre></div>
-<h2 id="011-jinja-templating-05-filters-and-functions">05. Filters and Functions<a class="headerlink" href="#011-jinja-templating-05-filters-and-functions" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="011-jinja-templating-05-filters-and-functions">05. Filters and functions<a class="headerlink" href="#011-jinja-templating-05-filters-and-functions" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>Jinja2</code> includes built-in filters to transform data:</li>
 </ul>
@@ -3482,27 +3476,20 @@ It is done to prevent naming collision between builtin modules and community mod
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#011-jinja-templating-__codelineno-4-5"></a>Listen {{ custom_port | default(8080) }}
 </span></code></pre></div>
 <hr />
-<h2 id="011-jinja-templating-summary"><strong>Summary</strong><a class="headerlink" href="#011-jinja-templating-summary" title="Permanent link">&para;</a></h2>
-<p>🔹 <strong>Jinja2</strong> enables dynamic template generation with <strong>variables and facts</strong>.<br />
-🔹 Templates help manage <strong>complex configurations</strong> simply and efficiently.<br />
+<h2 id="011-jinja-templating-06-summary">06. <strong>Summary</strong><a class="headerlink" href="#011-jinja-templating-06-summary" title="Permanent link">&para;</a></h2>
+<p>🔹 <code>Jinja2</code> enables dynamic template generation with <strong>variables and facts</strong>.<br />
+🔹 Templates help manage <strong>complex configurations</strong> in a more simple and efficient manner.<br />
 🔹 Use <strong>conditional statements and loops</strong> for highly dynamic setups.<br />
 🔹 Built-in filters enhance the <strong>manipulation of data</strong> directly within templates.</p>
 <hr />
-<p><img src="../../resources/practice.png" width="250px">
+<p><img src="../assets/images/practice.png" alt="Practice" width="800"/>
 <br/></p>
+<h2 id="011-jinja-templating-07-hands-on">07. Hands-on<a class="headerlink" href="#011-jinja-templating-07-hands-on" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Create a Jinja2 template for generating a dynamic <code>/etc/motd</code> (Message of the Day) file with a personal message (ensure is enabled first).</li>
-<li>The code can be found in lab 009</li>
-<li><strong>Bonus:</strong> Use facts to display useful information about OS distribution, IP address, and current hostname dynamically when logging in.</li>
-</ul>
-<hr />
-<!--- Labs Navigation Start -->
-<p style="text-align: center;">  
-    <a href="#labs-010-loops-and-conditionals">:arrow_backward: /Labs/010-loops-and-conditionals</a>
-    &emsp;<a href="#labs">Back to labs list</a>
-    &emsp;<a href="#labs-011-jinja-templating">/Labs/011-jinja-templating :arrow_forward:</a>
-</p>
-<!--- Labs Navigation End --></section></section></div><style>.print-site-enumerate-headings #welcome > h1:before { content: '1 ' }
+<li>Create a <code>Jinja2</code> template for generating a dynamic <code>/etc/motd</code> (<strong>&ldquo;Message of the Day&rdquo;</strong>) file, containing a personal message (ensure first that it is enabled).</li>
+<li>The relevant code can be found in lab 009.</li>
+<li><strong>Bonus:</strong> Use facts to display useful information about OS distribution, IP address and current hostname dynamically when logging in.</li>
+</ul></section></section></div><style>.print-site-enumerate-headings #welcome > h1:before { content: '1 ' }
 
                 .print-site-enumerate-headings #welcome h2:before { content: '1.' counter(counter-welcome-2) ' ' }
                 .print-site-enumerate-headings #welcome h2 {  counter-reset: counter-welcome-3 ;  counter-increment: counter-welcome-2 }
